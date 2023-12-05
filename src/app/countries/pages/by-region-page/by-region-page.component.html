@@ -1,0 +1,23 @@
+<h2>By Region</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <!-- searchBoxComponent -->
+
+        @for (region of regions; track region ) {
+         <button 
+         (click)="searchByRegion(region)" 
+         class="btn mx-2 bg-light text-black"
+         [ngClass]="{'btn-outline-dark': selectedRegion===region}"> {{ region }}</button>  
+        }
+        <!-- <shared-search-box (onDebounce)="searchByRegion($event)"   placeHolder="shearch by region"></shared-search-box> -->
+       
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <hr>
+        <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+     <countries-table [countries]="countries"></countries-table>
+    </div>
+</div>
